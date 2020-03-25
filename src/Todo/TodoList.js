@@ -27,6 +27,7 @@ class TodoList extends React.Component{
         event.preventDefault();
         const array = this.state.items;
         const index = array.indexOf(event.target.value);
+        console.log("item"+event.target.value);
         array.splice(index, 1);
         this.setState({
             items: array
@@ -37,7 +38,7 @@ class TodoList extends React.Component{
         return this.state.items.map((item) => {
             return(
                 <div className = "list-group-item" key = {item}>
-                    {item}<span className = "put_right"> | <button className = "btn btn-danger " onClick = {this.deleteTodo.bind(this)} >X</button></span> 
+                    {item}<span className = "put_right"> | <button value = {item} className = "btn btn-danger " onClick = {this.deleteTodo.bind(this)} >X</button></span> 
                 </div>
             );
         });
